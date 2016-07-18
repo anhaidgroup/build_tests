@@ -81,16 +81,14 @@ install:
   - cmd: conda info -a
 
   # create our env
-  - cmd: conda create -q -n py_stringsimjoin python=%PYTHON_VERSION%
-  - cmd: activate py_stringsimjoin
-  - cmd: conda install -y -c uwmagellan py_stringsimjoin
+  - cmd: conda create -q -n py_stringmatching python=%PYTHON_VERSION%
+  - cmd: activate py_stringmatching
+  - cmd: conda install -y -c uwmagellan py_stringmatching
 
 test_script:
   # Nosetests take care of unit tests
-  - cmd: activate py_stringsimjoin
-  - python --version
-  - "python -c \"import struct; print(struct.calcsize('P') * 8)\""
-  - python test_py_stringsimjoin.py 
+  - cmd: activate py_stringmatching
+  - python test_py_stringmatching.py 
 
 on_success:
   - echo Build succesful!
