@@ -91,7 +91,7 @@ test_script:
   - cmd: activate package_name
   - python --version
   - "python -c \"import struct; print(struct.calcsize('P') * 8)\""
-  - nosetests package_name
+  - nosetests package_name -m ^test*                                            
 
 on_success:
   - echo Build succesful!

@@ -43,5 +43,5 @@ install:
 script:
   - source activate package_name                                         
   - python --version                                                            
-  - nosetests package_name
+  - nosetests package_name -m ^test*                                            
 
