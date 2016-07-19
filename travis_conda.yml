@@ -37,11 +37,11 @@ before_install:
 
 install:
   - conda create -y -q -n package_name python=$PYTHON_VERSION nose           
-  - activate package_name                                                  
+  - source activate package_name                                                  
   - conda install -y -c uwmagellan package_name
 
 script:
-  - activate package_name                                         
+  - source activate package_name                                         
   - python --version                                                            
   - nosetests package_name
 
