@@ -1,0 +1,52 @@
+matrix:
+  include:
+  - os: linux
+    python: 2.7
+    env: PYTHON_VERSION=2.7
+  - os: linux
+    python: 3.3
+    env: PYTHON_VERSION=3.3
+  - os: linux
+    python: 3.4
+    env: PYTHON_VERSION=3.4
+  - os: linux
+    python: 3.5
+    env: PYTHON_VERSION=3.5
+  - os: osx
+    language: generic
+    env:
+    - PYTHON_VERSION=2.7
+  - os: osx
+    language: generic
+    env:
+    - PYTHON_VERSION=3.3
+  - os: osx
+    language: generic
+    env:
+    - PYTHON_VERSION=3.4
+  - os: osx
+    language: generic
+    env:
+    - PYTHON_VERSION=3.5
+
+before_install:
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then wget http://repo.continuum.io/miniconda/Miniconda2-4.0.5-Linux-x86_64.sh -O miniconda.sh; fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then wget https://repo.continuum.io/miniconda/Miniconda2-4.0.5-MacOSX-x86_64.sh -O miniconda.sh; fi
+  - bash miniconda.sh -b -p $HOME/miniconda
+  - export PATH="$HOME/miniconda/bin:$PATH"
+
+install:
+  - conda create -y -q -n magellan python=$PYTHON_VERSION nose           
+  - source activate magellan
+  - wget http://pradap-www.cs.wisc.edu/magellan//magellan-0.1.0.tar.gz
+  - pip install package_dir_name.tar.gz
+#  - tar -xzvf package_dir_name.tar.gz
+#  - cd package_dir_name
+#  - python setup.py install
+#  - pip install magellan
+
+script:
+  - source activate magellan                                         
+  - python --version                                                            
+  - nosetests magellan -m test_                                            
+
