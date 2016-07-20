@@ -81,7 +81,7 @@ install:
   - cmd: conda info -a
 
   # create our env
-  - cmd: conda create -q -n package_name python=%PYTHON_VERSION% nose
+  - cmd: conda create -q -n package_name python=%PYTHON_VERSION% nose numpy
   - cmd: activate package_name
   - cmd: python -m pip install --upgrade pip
   - cmd: appveyor DownloadFile package_url
