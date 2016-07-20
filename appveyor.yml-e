@@ -81,7 +81,7 @@ install:
   - cmd: conda info -a
 
   # create our env
-  - cmd: conda create -q -n magellan python=%PYTHON_VERSION% nose
+  - cmd: conda create -q -n magellan python=%PYTHON_VERSION% nose numpy
   - cmd: activate magellan
   - cmd: python -m pip install --upgrade pip
   - cmd: appveyor DownloadFile http://pradap-www.cs.wisc.edu/magellan//magellan-0.1.0.zip
