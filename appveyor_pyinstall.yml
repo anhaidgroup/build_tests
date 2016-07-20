@@ -87,7 +87,8 @@ install:
   - cmd: appveyor DownloadFile package_url
   - cmd: 7z x package_dir_name.zip
   - cmd: cd package_dir_name
-  - cmd: '%CMD_IN_ENV% python setup.py install'
+  - cmd: python setup.py install
+#  - cmd: '%CMD_IN_ENV% python setup.py install'
 
 test_script:
   # Nosetests take care of unit tests
