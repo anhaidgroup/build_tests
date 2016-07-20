@@ -1,0 +1,51 @@
+matrix:
+  include:
+  - os: linux
+    python: 2.7
+    env: PYTHON_VERSION=2.7
+  - os: linux
+    python: 3.3
+    env: PYTHON_VERSION=3.3
+  - os: linux
+    python: 3.4
+    env: PYTHON_VERSION=3.4
+  - os: linux
+    python: 3.5
+    env: PYTHON_VERSION=3.5
+  - os: osx
+    language: generic
+    env:
+    - PYTHON_VERSION=2.7
+  - os: osx
+    language: generic
+    env:
+    - PYTHON_VERSION=3.3
+  - os: osx
+    language: generic
+    env:
+    - PYTHON_VERSION=3.4
+  - os: osx
+    language: generic
+    env:
+    - PYTHON_VERSION=3.5
+
+before_install:
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then wget http://repo.continuum.io/miniconda/Miniconda2-4.0.5-Linux-x86_64.sh -O miniconda.sh; fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then wget https://repo.continuum.io/miniconda/Miniconda2-4.0.5-MacOSX-x86_64.sh -O miniconda.sh; fi
+  - bash miniconda.sh -b -p $HOME/miniconda
+  - export PATH="$HOME/miniconda/bin:$PATH"
+
+install:
+  - conda create -y -q -n package_name python=$PYTHON_VERSION nose           
+  - source activate package_name
+  - wget package_url
+  - tar -xzvf package_dir_name.tar.gz
+  - cd package_dir_name
+  - python setup.py install
+#  - pip install package_name
+
+script:
+  - source activate package_name                                         
+  - python --version                                                            
+  - nosetests package_name -m test_                                            
+
