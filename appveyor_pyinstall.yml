@@ -85,9 +85,9 @@ install:
   - cmd: activate package_name
   - cmd: python -m pip install --upgrade pip
   - cmd: appveyor DownloadFile package_url
-  - cmd: 7z x package_dir_name.zip
-  - cmd: cd package_dir_name
-  - cmd: python setup.py install
+#  - cmd: 7z x package_dir_name.zip
+#  - cmd: cd package_dir_name
+  - cmd: pip install package_dir_name.zip
 #  - cmd: '%CMD_IN_ENV% python setup.py install'
 
 test_script:

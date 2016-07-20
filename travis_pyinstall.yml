@@ -39,9 +39,10 @@ install:
   - conda create -y -q -n package_name python=$PYTHON_VERSION nose           
   - source activate package_name
   - wget package_url
-  - tar -xzvf package_dir_name.tar.gz
-  - cd package_dir_name
-  - python setup.py install
+  - pip install package_dir_name.tar.gz
+#  - tar -xzvf package_dir_name.tar.gz
+#  - cd package_dir_name
+#  - python setup.py install
 #  - pip install package_name
 
 script:
