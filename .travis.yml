@@ -45,4 +45,4 @@ script:
   - python --version                                                            
   - nosetests magellan -m test_                                            
 
-# timestamp: 2016.07.20-21.03.52
+# timestamp: 2016.07.20-21.31.41
