@@ -37,17 +37,12 @@ before_install:
 
 install:
   - conda create -y -q -n magellan python=$PYTHON_VERSION nose           
-  - source activate magellan
-  - wget http://pradap-www.cs.wisc.edu/magellan//magellan-0.1.0.tar.gz
-  - pip install magellan-0.1.0.tar.gz
-#  - tar -xzvf magellan-0.1.0.tar.gz
-#  - cd magellan-0.1.0
-#  - python setup.py install
-#  - pip install magellan
+  - source activate magellan                                                  
+  - conda install -y -c uwmagellan magellan
 
 script:
   - source activate magellan                                         
   - python --version                                                            
   - nosetests magellan -m test_                                            
 
-# timestamp: 2016.07.20-01.10.34
+# timestamp: 2016.07.20-21.03.52

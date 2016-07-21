@@ -36,17 +36,12 @@ before_install:
   - export PATH="$HOME/miniconda/bin:$PATH"
 
 install:
-  - conda create -y -q -n magellan python=$PYTHON_VERSION nose           
-  - source activate magellan
-  - wget http://pradap-www.cs.wisc.edu/magellan//magellan-0.1.0.tar.gz
-  - pip install package_dir_name.tar.gz
-#  - tar -xzvf package_dir_name.tar.gz
-#  - cd package_dir_name
-#  - python setup.py install
-#  - pip install magellan
+  - conda create -y -q -n package_name python=$PYTHON_VERSION nose           
+  - source activate package_name                                                  
+  - conda install -y -c uwmagellan package_name
 
 script:
-  - source activate magellan                                         
+  - source activate package_name                                         
   - python --version                                                            
-  - nosetests magellan -m test_                                            
+  - nosetests package_name -m test_                                            
 
