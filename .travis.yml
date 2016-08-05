@@ -36,13 +36,13 @@ before_install:
   - export PATH="$HOME/miniconda/bin:$PATH"
 
 install:
-  - conda create -y -q -n py_entitymatching python=$PYTHON_VERSION nose           
-  - source activate py_entitymatching                                                  
-  - conda install -y -c uwmagellan py_entitymatching
+  - conda create -y -q -n py_stringmatching python=$PYTHON_VERSION nose           
+  - source activate py_stringmatching                                                  
+  - conda install -y -c uwmagellan py_stringmatching
 
 script:
-  - source activate py_entitymatching                                         
+  - source activate py_stringmatching                                         
   - python --version                                                            
-  - nosetests py_entitymatching -m test_                                            
+  - nosetests py_stringmatching -m test_                                            
 
-# timestamp: 2016.08.04-20.07.34
+# timestamp: 2016.08.04-23.27.55

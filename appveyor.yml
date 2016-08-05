@@ -81,18 +81,18 @@ install:
   - cmd: conda info -a
 
   # create our env
-  - cmd: conda create -q -n py_entitymatching python=%PYTHON_VERSION% nose
-  - cmd: activate py_entitymatching
-  - cmd: conda install -y -c uwmagellan py_entitymatching
+  - cmd: conda create -q -n py_stringmatching python=%PYTHON_VERSION% nose
+  - cmd: activate py_stringmatching
+  - cmd: conda install -y -c uwmagellan py_stringmatching
 
 test_script:
   # Nosetests take care of unit tests
-  - cmd: activate py_entitymatching
+  - cmd: activate py_stringmatching
   - python --version
   - "python -c \"import struct; print(struct.calcsize('P') * 8)\""
-  - nosetests py_entitymatching -m test_
+  - nosetests py_stringmatching -m test_
 
 on_success:
   - echo Build succesful!
 
-# timestamp: 2016.08.04-20.07.34
+# timestamp: 2016.08.04-23.27.55
