@@ -81,18 +81,18 @@ install:
   - cmd: conda info -a
 
   # create our env
-  - cmd: conda create -q -n magellan python=%PYTHON_VERSION% nose
-  - cmd: activate magellan
-  - cmd: conda install -y -c uwmagellan magellan
+  - cmd: conda create -q -n py_entitymatching python=%PYTHON_VERSION% nose
+  - cmd: activate py_entitymatching
+  - cmd: conda install -y -c uwmagellan py_entitymatching
 
 test_script:
   # Nosetests take care of unit tests
-  - cmd: activate magellan
+  - cmd: activate py_entitymatching
   - python --version
   - "python -c \"import struct; print(struct.calcsize('P') * 8)\""
-  - nosetests magellan -m test_
+  - nosetests py_entitymatching -m test_
 
 on_success:
   - echo Build succesful!
 
-# timestamp: 2016.07.21-00.07.19
+# timestamp: 2016.08.04-23.33.12

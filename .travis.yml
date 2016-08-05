@@ -36,13 +36,13 @@ before_install:
   - export PATH="$HOME/miniconda/bin:$PATH"
 
 install:
-  - conda create -y -q -n magellan python=$PYTHON_VERSION nose           
-  - source activate magellan                                                  
-  - conda install -y -c uwmagellan magellan
+  - conda create -y -q -n py_entitymatching python=$PYTHON_VERSION nose           
+  - source activate py_entitymatching                                                  
+  - conda install -y -c uwmagellan py_entitymatching
 
 script:
-  - source activate magellan                                         
+  - source activate py_entitymatching                                         
   - python --version                                                            
-  - nosetests magellan -m test_                                            
+  - nosetests py_entitymatching -m test_                                            
 
-# timestamp: 2016.07.21-00.07.19
+# timestamp: 2016.08.04-23.33.12
