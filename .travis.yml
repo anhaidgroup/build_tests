@@ -45,4 +45,4 @@ script:
   - python --version                                                            
   - nosetests py_entitymatching -m test_                                            
 
-# timestamp: 2016.08.04-23.33.12
+# timestamp: 2016.08.05-00.15.07
