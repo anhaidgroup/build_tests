@@ -83,16 +83,21 @@ install:
   # create our env
   - cmd: conda create -q -n py_entitymatching python=%PYTHON_VERSION% nose
   - cmd: activate py_entitymatching
-  - cmd: conda install -y -c uwmagellan py_entitymatching
+  - cmd: python -m pip install --upgrade pip
+  - cmd: appveyor DownloadFile http://pradap-www.cs.wisc.edu/magellan//py_entitymatching-0.1.0.zip
+#  - cmd: 7z x py_entitymatching-0.1.0.zip
+#  - cmd: cd py_entitymatching-0.1.0
+  - cmd: pip install py_entitymatching-0.1.0.zip
+#  - cmd: '%CMD_IN_ENV% python setup.py install'
 
 test_script:
   # Nosetests take care of unit tests
   - cmd: activate py_entitymatching
   - python --version
   - "python -c \"import struct; print(struct.calcsize('P') * 8)\""
-  - nosetests py_entitymatching -m test_
+  - nosetests py_entitymatching -m test_                                            
 
 on_success:
   - echo Build succesful!
 
-# timestamp: 2016.08.04-22.47.49
+# timestamp: 2017.01.11-14.41.00

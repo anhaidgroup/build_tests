@@ -36,12 +36,17 @@ before_install:
   - export PATH="$HOME/miniconda/bin:$PATH"
 
 install:
-  - conda create -y -q -n package_name python=$PYTHON_VERSION nose           
-  - source activate package_name                                                  
-  - conda install -y -c uwmagellan package_name
+  - conda create -y -q -n py_entitymatching python=$PYTHON_VERSION nose           
+  - source activate py_entitymatching
+  - wget http://pradap-www.cs.wisc.edu/magellan//py_entitymatching-0.1.0.tar.gz
+  - pip install package_dir_name.tar.gz
+#  - tar -xzvf package_dir_name.tar.gz
+#  - cd package_dir_name
+#  - python setup.py install
+#  - pip install py_entitymatching
 
 script:
-  - source activate package_name                                         
+  - source activate py_entitymatching                                         
   - python --version                                                            
-  - nosetests package_name -m test_                                            
+  - nosetests py_entitymatching -m test_                                            
 
