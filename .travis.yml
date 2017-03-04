@@ -52,4 +52,4 @@ script:
   - python --version                                                            
   - nosetests py_stringmatching -m test_                                            
 
-# timestamp: 2017.03.04-08.00.20
+# timestamp: 2017.03.04-08.15.01

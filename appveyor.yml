@@ -95,4 +95,4 @@ test_script:
 on_success:
   - echo Build succesful!
 
-# timestamp: 2017.03.04-08.00.20
+# timestamp: 2017.03.04-08.15.01
