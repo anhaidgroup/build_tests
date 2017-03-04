@@ -4,14 +4,14 @@ matrix:
     python: 2.7
     env: PYTHON_VERSION=2.7
   - os: linux
-    python: 3.3
-    env: PYTHON_VERSION=3.3
-  - os: linux
     python: 3.4
     env: PYTHON_VERSION=3.4
   - os: linux
     python: 3.5
     env: PYTHON_VERSION=3.5
+  - os: linux
+    python: 3.6
+    env: PYTHON_VERSION=3.6
   - os: osx
     language: generic
     env:
@@ -28,6 +28,10 @@ matrix:
     language: generic
     env:
     - PYTHON_VERSION=3.5
+  - os: osx
+    language: generic
+    env:
+    - PYTHON_VERSION=3.6
 
 before_install:
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then wget http://repo.continuum.io/miniconda/Miniconda2-4.0.5-Linux-x86_64.sh -O miniconda.sh; fi
@@ -37,17 +41,12 @@ before_install:
 
 install:
   - conda create -y -q -n py_entitymatching python=$PYTHON_VERSION nose           
-  - source activate py_entitymatching
-  - wget http://pradap-www.cs.wisc.edu/magellan//py_entitymatching-0.1.0.tar.gz
-  - pip install py_entitymatching-0.1.0.tar.gz
-#  - tar -xzvf py_entitymatching-0.1.0.tar.gz
-#  - cd py_entitymatching-0.1.0
-#  - python setup.py install
-#  - pip install py_entitymatching
+  - source activate py_entitymatching                                                  
+  - conda install -y -c uwmagellan py_entitymatching
 
 script:
   - source activate py_entitymatching                                         
   - python --version                                                            
   - nosetests py_entitymatching -m test_                                            
 
-# timestamp: 2017.01.11-14.41.00
+# timestamp: 2017.03.04-12.51.05
