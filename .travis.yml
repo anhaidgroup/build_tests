@@ -43,13 +43,13 @@ before_install:
   - export PATH="$HOME/miniconda/bin:$PATH"
 
 install:
-  - conda create -y -q -n py_stringmatching python=$PYTHON_VERSION nose           
-  - source activate py_stringmatching                                                  
-  - conda install -y -c uwmagellan py_stringmatching
+  - conda create -y -q -n py_stringsimjoin python=$PYTHON_VERSION nose           
+  - source activate py_stringsimjoin                                                  
+  - conda install -y -c uwmagellan py_stringsimjoin
 
 script:
-  - source activate py_stringmatching                                         
+  - source activate py_stringsimjoin                                         
   - python --version                                                            
-  - nosetests py_stringmatching -m test_                                            
+  - nosetests py_stringsimjoin -m test_                                            
 
-# timestamp: 2017.03.04-08.18.46
+# timestamp: 2017.03.04-08.43.22
