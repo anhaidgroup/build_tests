@@ -19,10 +19,6 @@ matrix:
   - os: osx
     language: generic
     env:
-    - PYTHON_VERSION=3.3
-  - os: osx
-    language: generic
-    env:
     - PYTHON_VERSION=3.4
   - os: osx
     language: generic
@@ -49,4 +45,4 @@ script:
   - python --version                                                            
   - nosetests py_entitymatching -m test_                                            
 
-# timestamp: 2017.03.04-12.51.05
+# timestamp: 2017.03.04-12.54.38
