@@ -50,6 +50,6 @@ install:
 script:
   - source activate py_stringsimjoin_cython                                         
   - python --version                                                            
-  - nosetests py_stringsimjoin_cython -m test_                                            
+  - nosetests py_stringsimjoin -m test_                                            
 
-# timestamp: 2017.03.16-19.41.11
+# timestamp: 2017.03.16-19.45.14
