@@ -50,5 +50,5 @@ install:
 script:
   - source activate package_name                                         
   - python --version                                                            
-  - nosetests package_name -m test_                                            
+  - nosetests py_stringsimjoin -m test_                                            
 
