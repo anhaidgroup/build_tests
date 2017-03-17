@@ -36,7 +36,7 @@ before_install:
   - export PATH="$HOME/miniconda/bin:$PATH"
 
 install:
-  - conda create -y -q -n package_name python=$PYTHON_VERSION nose           
+  - conda create -y -q -n package_name python=$PYTHON_VERSION nose gcc       
   - source activate package_name                                                  
   - conda install -y -c uwmagellan package_name
 
