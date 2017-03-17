@@ -90,18 +90,18 @@ install:
   - cmd: conda info -a
 
   # create our env
-  - cmd: conda create -q -n py_stringsimjoin python=%PYTHON_VERSION% nose
-  - cmd: activate py_stringsimjoin
-  - cmd: conda install -y -c uwmagellan py_stringsimjoin
+  - cmd: conda create -q -n py_stringsimjoin_cython python=%PYTHON_VERSION% nose
+  - cmd: activate py_stringsimjoin_cython
+  - cmd: conda install -y -c uwmagellan py_stringsimjoin_cython
 
 test_script:
   # Nosetests take care of unit tests
-  - cmd: activate py_stringsimjoin
+  - cmd: activate py_stringsimjoin_cython
   - python --version
   - "python -c \"import struct; print(struct.calcsize('P') * 8)\""
-  - nosetests py_stringsimjoin -m test_
+  - nosetests py_stringsimjoin_cython -m test_
 
 on_success:
   - echo Build succesful!
 
-# timestamp: 2017.03.04-08.43.22
+# timestamp: 2017.03.16-19.41.11

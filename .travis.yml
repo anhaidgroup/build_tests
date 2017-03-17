@@ -43,13 +43,13 @@ before_install:
   - export PATH="$HOME/miniconda/bin:$PATH"
 
 install:
-  - conda create -y -q -n py_stringsimjoin python=$PYTHON_VERSION nose           
-  - source activate py_stringsimjoin                                                  
-  - conda install -y -c uwmagellan py_stringsimjoin
+  - conda create -y -q -n py_stringsimjoin_cython python=$PYTHON_VERSION nose           
+  - source activate py_stringsimjoin_cython                                                  
+  - conda install -y -c uwmagellan py_stringsimjoin_cython
 
 script:
-  - source activate py_stringsimjoin                                         
+  - source activate py_stringsimjoin_cython                                         
   - python --version                                                            
-  - nosetests py_stringsimjoin -m test_                                            
+  - nosetests py_stringsimjoin_cython -m test_                                            
 
-# timestamp: 2017.03.04-08.43.22
+# timestamp: 2017.03.16-19.41.11
